@@ -1,0 +1,6 @@
+#!/usr/bin/awk -f 
+
+{ match($0,"SMTP::") }
+{ if (RLENGTH  > 0)
+    match($0,"\<.*@[^>]*\>.\-\>.\<[^\>]*\>")  
+    print substr($0,RSTART,RLENGTH) }  
